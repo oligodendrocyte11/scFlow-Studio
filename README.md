@@ -85,6 +85,8 @@ Project-owned source files are included in `source/`. Large bundled runtime fold
 
 ## Citation
 
+The archived release is available on Zenodo at https://doi.org/10.5281/zenodo.20207686.
+
 Please cite this software using `CITATION.cff` once the manuscript DOI and repository DOI are available.
 
 ## Contact

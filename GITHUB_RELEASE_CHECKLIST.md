@@ -52,15 +52,15 @@
 
 ## Remaining Manual Steps Before Uploading
 
-- Replace remaining manuscript metadata placeholders after archival: GitHub URL is `https://github.com/oligodendrocyte11/scFlow-Studio`; Zenodo DOI remains `TODO: Zenodo DOI to be added after archival release`; author metadata has been partially filled as Zhuang Yuming where requested; contact email still needs confirmation.
+- Replace remaining manuscript metadata placeholders after archival: GitHub URL is `https://github.com/oligodendrocyte11/scFlow-Studio`; Zenodo DOI is `https://doi.org/10.5281/zenodo.20207686`; author metadata has been partially filled as Zhuang Yuming where requested; contact email still needs confirmation.
 - Confirm final license terms with the authors/institution.
 - Upload this folder or a curated repository copy to GitHub.
-- Archive the final repository release on Zenodo to obtain a DOI.
-- Add the DOI and repository URL to the manuscript availability statement.
+- Archived release DOI: https://doi.org/10.5281/zenodo.20207686.
+- DOI and repository URL have been added to the manuscript availability statement template.
 
 ## Suggested Zenodo Archiving Step
 
-Create a GitHub release, connect the repository to Zenodo, archive the release, and record the Zenodo DOI in `CITATION.cff` and `availability_statement_template.md`.
+Zenodo archival DOI has been recorded in `CITATION.cff` and `availability_statement_template.md`: https://doi.org/10.5281/zenodo.20207686.
 
 ## Known Limitations
 

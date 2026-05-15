@@ -13,3 +13,5 @@ The trial build is valid until **2026-10-01**.
 For manuscript submission, archive this folder on Zenodo or another repository that provides a DOI.
 
 Suggested availability wording is provided in `availability_statement_template.md`.
+
+The archived release is available on Zenodo at https://doi.org/10.5281/zenodo.20207686.
