@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "scFlow Studio"
+message: "If you use scFlow Studio, please cite this software and the associated publication."
+authors:
+  - family-names: "Zhuang"
+    given-names: "Yuming"
+version: "1.0.0"
+license: "PolyForm-Noncommercial-1.0.0"
+repository-code: "https://github.com/oligodendrocyte11/scFlow-Studio"
+date-released: "2026-05-15"
+# doi: "TODO: Zenodo DOI to be added after archival release"

@@ -1,0 +1,75 @@
+param(
+    [switch]$Clean = $true
+)
+
+$ErrorActionPreference = 'Stop'
+$Root = Split-Path -Parent $MyInvocation.MyCommand.Path
+Set-Location $Root
+
+$SpecFile = Join-Path $Root 'scflow_studio.spec'
+$PythonCandidates = @()
+
+if ($env:SCFLOW_PYTHON) {
+    $PythonCandidates += $env:SCFLOW_PYTHON
+}
+
+# Optional: set SCFLOW_PYTHON to a Python executable with PySide6 and PyInstaller installed.
+# Example:
+#   $env:SCFLOW_PYTHON = 'C:\path\to\python.exe'
+
+$PythonCandidates += 'python'
+
+function Test-PythonCandidate {
+    param([string]$PythonExe)
+    try {
+        & $PythonExe -c "from PySide6.QtCore import Qt; import PyInstaller; print('ok')" *> $null
+        return ($LASTEXITCODE -eq 0)
+    }
+    catch {
+        return $false
+    }
+}
+
+$PythonExe = $null
+foreach ($Candidate in $PythonCandidates) {
+    if (Test-PythonCandidate -PythonExe $Candidate) {
+        $PythonExe = $Candidate
+        break
+    }
+}
+
+if (-not $PythonExe) {
+    throw 'No usable Python interpreter found. Set SCFLOW_PYTHON to an environment with PySide6 and PyInstaller.'
+}
+
+$PyInstallerArgs = @('-m', 'PyInstaller', '--noconfirm')
+if ($Clean) {
+    $PyInstallerArgs += '--clean'
+}
+$PyInstallerArgs += $SpecFile
+
+Write-Host '=== scFlow Studio Windows Build ===' -ForegroundColor Cyan
+Write-Host "Python: $PythonExe"
+Write-Host "Spec:   $SpecFile"
+Write-Host "Run:    $PythonExe $($PyInstallerArgs -join ' ')" -ForegroundColor Yellow
+
+& $PythonExe @PyInstallerArgs
+if ($LASTEXITCODE -ne 0) {
+    throw "PyInstaller build failed with exit code $LASTEXITCODE"
+}
+
+$DistDir = Join-Path $Root 'dist\scFlow Studio'
+$ExePath = Join-Path $DistDir 'scFlow Studio.exe'
+if (-not (Test-Path $ExePath)) {
+    throw "Build finished but exe was not found: $ExePath"
+}
+
+Write-Host ''
+Write-Host 'Build completed.' -ForegroundColor Green
+Write-Host "Output: $DistDir"
+Write-Host "Exe:    $ExePath"
+Write-Host ''
+Write-Host 'Validation checklist:' -ForegroundColor Cyan
+Write-Host '1. Double-click scFlow Studio.exe and confirm the main window opens.'
+Write-Host '2. Confirm _internal\r_scripts, _internal\resources, and _internal\vendor\R-portable exist.'
+Write-Host '3. Run one DEG -> GSEA -> single-pathway plot workflow and export once.'

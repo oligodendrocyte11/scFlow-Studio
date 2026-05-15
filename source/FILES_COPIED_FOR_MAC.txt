@@ -1,0 +1,5 @@
+# Files Included in the English macOS Edition
+
+This directory was created from the current macOS scFlow Studio source tree. It includes application source code, R backend scripts, UI resources, packaging scripts, bundled runtime resources, celldex cache, and CellAssign-related runtime files when present.
+
+Generated build outputs are intentionally excluded before rebuilding the English application.

@@ -1,0 +1,6 @@
+scFlow Studio Academic Trial
+Version: 0.1.0-mvp-academic-trial
+Trial expiration date: 2026-10-01
+Build date: 2026-04-28
+Platform: macOS arm64
+Activation required: no

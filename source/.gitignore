@@ -1,0 +1,17 @@
+﻿__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+.venv/
+venv/
+build/
+dist/
+secrets/
+vendor/R-portable/
+.pytest_cache/
+*.spec.bak
+matrix_import_test__*/
+tmp_*.pem
+tmp_*.tar
+tmp_matrix_import_*/
