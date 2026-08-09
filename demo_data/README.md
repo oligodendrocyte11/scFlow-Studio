@@ -1,36 +1,41 @@
 # Demo Data Preparation
 
-This package does not include large demo datasets. To test the workflow, prepare one of the following input types.
+This repository does not include large raw datasets. Prepare one of the supported public input formats before testing the workflow.
 
-## 10X Matrix Folder
+## GSE250245 example
 
-A standard 10X folder should contain:
+The Windows user manual demonstrates three samples:
+
+| Sample | Group |
+| --- | --- |
+| Sham | Sham |
+| MMCAO | MCAO |
+| SMCAO | MCAO |
+
+Keep this sample order when reproducing the illustrated workflow.
+
+## 10X Matrix folder
+
+A standard 10X folder contains:
 
 - `matrix.mtx.gz`
 - `barcodes.tsv.gz`
 - `features.tsv.gz` or `genes.tsv.gz`
 
-Add each sample folder from the **Project and Data** page.
+## Expression matrix
 
-## Expression Matrix
+CSV, TSV, and TXT matrices can be imported through **Import Matrix File**. Confirm the detected orientation, sample names, groups, and species before continuing.
 
-A matrix file can be prepared as CSV/TSV/TXT where rows represent genes and columns represent cells or samples, depending on the import mode supported by the project page. If a sidecar metadata file is available, place it in the same directory and use matching sample/barcode identifiers.
+## H5AD / AnnData
 
-## Marker CSV
+Single-sample and multi-sample H5AD objects are supported. During confirmation, replace numeric groups such as `0` and `1` with the true experimental group names when necessary.
 
-A marker table should contain cell-type names and marker genes. Recommended columns include:
+## Marker and gene-set files
 
-- `celltype`
-- `gene`
-
-## GMT Gene Sets
-
-A GMT file should follow the standard format:
+Marker tables should identify cell types and marker genes. GMT files use the standard tab-separated structure:
 
 ```text
 GeneSetName<TAB>Description<TAB>GeneA<TAB>GeneB<TAB>GeneC
 ```
 
-## Suggested Public Data
-
-For manuscript validation, select at least one public scRNA-seq dataset with known cell types and experimental groups. Record the accession, species, sample count, cell count, and preprocessing parameters in the manuscript.
+Record the accession, species, sample count, cell count, source URL, and preprocessing parameters for every public dataset used in a report or manuscript.
