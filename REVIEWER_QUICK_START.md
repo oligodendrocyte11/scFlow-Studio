@@ -1,48 +1,36 @@
 # Reviewer Quick Start
 
-## 1. Download and open the trial app
+## 1. Download the Windows release
 
-Download `scFlow_Studio_Mac_AcademicTrial_2026-10-01.zip` from GitHub Releases, unzip it, and open `scFlow Studio.app`.
+Download `scFlow Studio Agent V0.1.0 Setup.exe` and the English manual from the [`windows-agent-v0.1.0` release](https://github.com/oligodendrocyte11/scFlow-Studio/releases/tag/windows-agent-v0.1.0). Verify the installer checksum in `CHECKSUMS.txt`.
 
-If macOS blocks the app because it is not notarized, right-click the app and choose **Open**. For local reviewer testing, quarantine can also be removed with:
+The Windows build runs without activation through 2026-10-31. Activation is required starting 2026-11-01.
 
-```bash
-xattr -dr com.apple.quarantine "scFlow Studio.app"
-```
+## 2. Install and launch
 
-## 2. Prepare test data
+Run the installer on Windows 10 or Windows 11 x64. The build is not digitally signed, so SmartScreen may display an Unknown publisher warning.
 
-Recommended manuscript demo dataset:
+## 3. Prepare test data
+
+Recommended demonstration dataset:
 
 - Dataset: GSE250245
-- Biological context: right-hemisphere ischemic lesion single-cell RNA-seq dataset
-- Example samples: GSM7976207, GSM7976209, GSM7976211
-- Approximate benchmark size: 35,377 cells, depending on QC and preprocessing settings
+- Samples: Sham, MMCAO, and SMCAO
+- Groups: Sham; MCAO; MCAO
 
-If the demo data are not included in this repository, download the original data from GEO and organize the 10X folders before importing.
+The repository does not include the large raw dataset. Prepare the 10X folders from the original public source before importing.
 
-## 3. Create a project
+## 4. Suggested smoke test
 
-Open scFlow Studio, create a new project in a writable directory, and add the prepared samples from the Project and Data page.
+1. Create a project in a writable directory outside the installation folder.
+2. Import one small 10X sample or H5AD object.
+3. Confirm sample name, group, and species.
+4. Run Data Import and Quality Control.
+5. Confirm that the Log updates and result previews are generated.
+6. Save and reopen the project.
 
-## 4. Run the core workflow
+## 5. Full workflow
 
-Recommended smoke-test workflow:
+For complete testing, follow the 16 numbered pages and the GSE250245 walkthrough in `docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx`.
 
-1. Check data
-2. Run single-sample QC
-3. Run or skip doublet removal
-4. Run batch correction preview if multiple samples are present
-5. Run merge and clustering
-6. Run main annotation
-7. Run differential expression
-8. Run GSEA
-9. Export figures and tables
-
-## 5. Expected outputs
-
-The project cache should contain PNG/PDF/SVG figures, CSV/TSV/TXT result tables, summary JSON files, and exported RDS/h5ad files depending on the selected modules.
-
-## 6. Expected runtime
-
-On a 16 GB macOS machine, the approximately 35k-cell benchmark workflow is expected to complete in less than 30 minutes with peak memory below 10 GB. Please verify and update these values before publication if hardware or input data change.
+A matching macOS DMG will be published separately with platform-specific instructions.

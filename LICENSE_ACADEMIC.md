@@ -1,11 +1,9 @@
-# Academic Trial App Notice
+# Academic Evaluation Build Notice
 
-This file describes the academic trial application distributed with this repository. It does not replace or modify the root `LICENSE` file.
+This notice describes time-limited application builds distributed through this repository. It does not replace or modify the root `LICENSE`.
 
-The original scFlow Studio source code is source-available for non-commercial academic use under the PolyForm Noncommercial License 1.0.0. Commercial use requires prior written permission from the authors.
+Project-owned scFlow Studio source code is source-available for non-commercial academic use under the PolyForm Noncommercial License 1.0.0. Commercial use requires prior written permission from the author.
 
-The macOS academic trial application is provided for peer review and non-commercial academic evaluation. The trial application is valid until **2026-10-01**. After that date, the application will stop running and display an expiration message.
+The Windows V0.1.0 evaluation build runs without activation through **2026-10-31** and requires a valid activation code starting **2026-11-01**. Platform-specific macOS availability is stated on its separate release page.
 
-Third-party dependencies bundled with or used by the trial application remain under their respective original licenses and are not relicensed by this repository. See `THIRD_PARTY_LICENSES.md` for details.
-
-This project-level academic-use notice should be reviewed before final public release.
+Third-party dependencies bundled with or used by the application remain under their respective original licenses and are not relicensed by this repository. See `THIRD_PARTY_LICENSES.md`.

@@ -1,51 +1,31 @@
 # Dependencies
 
-The macOS academic trial app bundles the runtime environment required for reviewer testing, including Python, R, R packages, R scripts, resources, and local reference-cache files available at build time.
+The Windows V0.1.0 installer bundles the runtime environment required for normal use. Users do not need to install R or Python separately.
 
-## Python dependencies
+## Bundled Windows runtime
 
-See `source/requirements.txt`.
+- R 4.5.2
+- Seurat 5.4.0
+- SeuratObject 5.3.0
+- Matrix 1.7-4
+- DoubletFinder 2.0.6
+- SingleR 2.12.0
+- CellChat 1.6.1
+- monocle3 1.4.26
+- PySide6 application interface and the packaged Python runtime
 
-Major Python dependencies include:
+Additional R and Python packages are included for H5AD import/export, annotation, differential expression, enrichment, scoring, plotting, report export, and optional AI-provider integration.
 
-- PySide6
-- psutil
-- cryptography
-- numpy
-- pandas
-- scipy
-- h5py
-- openpyxl
+## Runtime isolation
 
-## R dependencies
+The application is designed to use its bundled R and package library. Leave **Settings > Rscript Path** on **Auto**. Pointing the application to a system R installation can change package resolution and reproducibility.
 
-Major R dependencies include:
+During the first real R analysis, the packaged R runtime may be prepared in a temporary runtime directory before execution. This is expected behavior.
 
-- Seurat
-- SeuratObject
-- Matrix
-- jsonlite
-- ggplot2
-- patchwork
-- dplyr
-- tidyr
-- harmony
-- DoubletFinder
-- SingleR
-- celldex
-- SCINA
-- cellassign
-- fgsea
-- MAST
-- SeuratDisk
-- zellkonverter
+## Source builds
 
-## Runtime notes
+The source snapshot does not duplicate every large runtime component. Building a complete standalone release requires the matching platform-specific R/Python runtimes, package libraries, reference data, and packaging configuration.
 
-The trial `.app` is intended to run without requiring users to install Python or R manually.
+## Third-party terms
 
-The source snapshot does not include the full bundled runtime because of file size. Rebuilding the standalone app requires restoring the prepared runtime folders described in `source/vendor/README.md`, if applicable.
-
-## Reference data
-
-SingleR/celldex references are expected to be available from the bundled cache when included in the trial app. If a reference is missing from the local cache, some annotation workflows may require network access to retrieve the reference from its original provider.
+Bundled third-party components retain their original licenses. Package-level license metadata and license files are included with the respective runtime components where supplied upstream. See `THIRD_PARTY_LICENSES.md`.

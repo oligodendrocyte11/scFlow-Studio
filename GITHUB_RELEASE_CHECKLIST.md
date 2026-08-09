@@ -1,99 +1,35 @@
 # GitHub Release Checklist
 
-## Copied Source Code List
+## Repository materials
 
-- `source/app/`
-- `source/core/`
-- `source/ui/`
-- `source/widgets/`
-- `source/tools/`
-- `source/r_scripts/`
-- `source/resources/` including `trial_config.json`
-- `source/main.py`
-- `source/requirements.txt`
-- macOS packaging files and icons
+- [x] Cross-platform README with current Windows release information
+- [x] Windows installation and uninstall instructions
+- [x] Quick start and GSE250245 sample grouping
+- [x] Complete English Word manual
+- [x] Release notes and changelog
+- [x] Version and dependency summary
+- [x] SHA-256 checksums
+- [x] License, notice, citation, and third-party dependency statements
+- [x] Known limitations and security guidance
+- [x] Public screenshot without local paths, credentials, or sample identifiers
 
-## Generated Documentation List
+## Windows release assets
 
-- `README.md`
-- `INSTALL.md`
-- `QUICK_START.md`
-- `USER_MANUAL.md`
-- `CODE_AVAILABILITY.md`
-- `availability_statement_template.md`
-- `reviewer_test_instructions.md`
-- `software_description.md`
-- `LICENSE_ACADEMIC.md`
-- `CITATION.cff`
-- `VERSION.txt`
-- `CHANGELOG.md`
-- `LICENSE`
-- `NOTICE`
-- `THIRD_PARTY_LICENSES.md`
-- `DATA_LICENSE.md`
-- `demo_data/README.md`
-- `build_notes/macos_build_notes.md`
+- [x] `scFlow Studio Agent V0.1.0 Setup.exe`
+- [x] `scFlow Studio Agent V0.1.0 User Manual.docx`
+- [x] Installer size below GitHub's 2 GiB per-release-asset limit
+- [x] Activation-free through 2026-10-31
+- [x] Activation required starting 2026-11-01
+- [x] Unsigned-installer warning documented
 
-## Trial App Build Path
+## Before publishing
 
-`release/scFlow_Studio_Mac_AcademicTrial_2026-10-01.zip`
+- [ ] Confirm the intended GitHub account is signed in
+- [ ] Upload the repository documentation commit
+- [ ] Create tag `windows-agent-v0.1.0`
+- [ ] Upload both release assets
+- [ ] Publish the release and verify the online asset sizes and checksums
 
-## Trial Expiration Behavior
+## Later macOS release
 
-- Trial mode is controlled by `resources/trial_config.json`.
-- Active trial date range: current date through 2026-10-01 inclusive.
-- After 2026-10-01, startup is blocked with the message: `This academic trial version expired on 2026-10-01. Please contact the authors for an updated version.`
-
-## Activation Scope
-
-- Activation is disabled only when `trial_config.json` is present and `trial_mode` is true.
-- The regular license/activation code path remains in `core/license_manager.py`.
-- The temporary root `resources/trial_config.json` used for this trial build was removed after packaging; the release source snapshot and packaged app still include it. Remove `resources/trial_config.json` from any future source checkout before building a formal activation-gated release.
-
-## Remaining Manual Steps Before Uploading
-
-- Replace remaining manuscript metadata placeholders after archival: GitHub URL is `https://github.com/oligodendrocyte11/scFlow-Studio`; Zenodo DOI is `https://doi.org/10.5281/zenodo.20207686`; author metadata has been partially filled as Zhuang Yuming where requested; contact email still needs confirmation.
-- Confirm final license terms with the authors/institution.
-- Upload this folder or a curated repository copy to GitHub.
-- Archived release DOI: https://doi.org/10.5281/zenodo.20207686.
-- DOI and repository URL have been added to the manuscript availability statement template.
-
-## Suggested Zenodo Archiving Step
-
-Zenodo archival DOI has been recorded in `CITATION.cff` and `availability_statement_template.md`: https://doi.org/10.5281/zenodo.20207686.
-
-## Known Limitations
-
-- The macOS trial app is ad-hoc signed and not Apple-notarized. Reviewers may need to use right-click **Open** or remove quarantine locally.
-- The source snapshot does not duplicate the full bundled runtime or reference cache; these are included in the release app archive.
-- Very large scRNA-seq datasets may require substantial RAM and disk space.
-
-## Validation Performed
-
-- Built `dist_macos/scFlow Studio.app` successfully with `bash build_macos.sh`.
-- Verified the built app contains `Contents/Resources/resources/trial_config.json`.
-- Verified the GitHub source snapshot reports `source_trial=True`, `source_valid=True`, and `source_expires=2026-10-01`.
-- Verified the root working project no longer has `resources/trial_config.json`, so future formal builds do not automatically enter trial mode.
-- Verified the release zip contains `scFlow Studio.app/Contents/MacOS/scFlow Studio` and bundled `trial_config.json`.
-- Launch-smoke-tested the built app; the process stayed alive for the smoke window and did not immediately exit.
-
-## Release Archive
-
-- Archive: `release/scFlow_Studio_Mac_AcademicTrial_2026-10-01.zip`
-- Approximate archive size on this machine: 1.6 GB
-
-## 2026-05-10 Patch Validation
-
-- Fixed GSEA parameter labels: `Minimum genes per pathway` and `Maximum genes per pathway`.
-- Fixed main annotation plot basenames/titles to follow the selected reduction (`umap_*` or `tsne_*`).
-- Fixed subcluster and subtype plot basenames/titles to follow the selected reduction, including t-SNE split-by-group output.
-- Synced the same fixes into `source/` for the GitHub/manuscript release folder.
-- Rebuilt the academic trial app and overwrote `release/scFlow_Studio_Mac_AcademicTrial_2026-10-01.zip`.
-- Removed the temporary root `resources/trial_config.json` after rebuilding; the packaged app and GitHub source snapshot still include the trial config.
-
-## Licensing Update
-
-- The original scFlow Studio source code is documented as source-available for non-commercial academic use under the PolyForm Noncommercial License 1.0.0.
-- Commercial use requires prior written permission from the authors.
-- Third-party dependencies remain under their respective original licenses and are not relicensed by this repository.
-
+Publish the matching DMG under a separate tag and release page. Add its checksum, signing/notarization status, system requirements, and availability policy without replacing the Windows-specific instructions.

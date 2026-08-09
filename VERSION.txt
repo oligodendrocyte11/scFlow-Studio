@@ -1,6 +1,10 @@
-scFlow Studio Academic Trial
-Version: 0.1.0-mvp-academic-trial
-Trial expiration date: 2026-10-01
-Build date: 2026-04-28
-Platform: macOS arm64
-Activation required: no
+Product: scFlow Studio Agent
+Version: 0.1.0
+Build date: 2026-08-07
+Documentation date: 2026-08-09
+Platform: Windows x64
+Bundled R: 4.5.2
+Bundled Seurat: 5.4.0
+Bundled SeuratObject: 5.3.0
+Activation-free through: 2026-10-31
+Activation required from: 2026-11-01

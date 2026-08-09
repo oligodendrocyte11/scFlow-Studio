@@ -1,5 +1,7 @@
 # Software Description
 
-scFlow Studio is a local desktop software platform for single-cell RNA-seq analysis. It provides a graphical workflow built with Python/PySide6 and executes core analyses through R scripts built around Seurat and related single-cell analysis packages. The software is designed to help researchers run common single-cell workflows without manually coordinating separate scripts for import, QC, doublet handling, batch correction, clustering, annotation, downstream comparisons, visualization, and export.
+scFlow Studio Agent is a local desktop platform for single-cell RNA-seq analysis. It provides a graphical Python/PySide6 workflow and executes core analyses with a bundled R/Seurat environment.
 
-The macOS academic trial build in this release bundles the runtime environment required for peer-review testing and does not require activation during the trial period.
+The software coordinates data import, QC, doublet handling, batch correction, clustering, cell-type annotation, subcluster analysis, differential expression, enrichment, single-gene visualization, gene-set scoring, cell–cell communication, cell-cycle scoring, trajectory analysis, report export, and optional AI-assisted manuscript organization.
+
+The Windows V0.1.0 distribution includes the application and its required runtime environment. It runs without activation through 2026-10-31 and requires a valid activation code from 2026-11-01. A matching macOS DMG is distributed separately.

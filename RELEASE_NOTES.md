@@ -1,28 +1,36 @@
 # Release Notes
 
-## scFlow Studio v1.0.0 Academic Trial
+## scFlow Studio Agent V0.1.0 — Windows x64
 
-This release provides a macOS academic trial build of scFlow Studio for reviewer and non-commercial academic evaluation.
+Release tag: `windows-agent-v0.1.0`
 
 ### Included
 
-- macOS academic trial app distributed via GitHub Releases
-- Source-code snapshot
-- Documentation for installation, quick start, user workflow, and reviewer testing
-- Demo-data instructions
-- License and citation metadata
+- Windows x64 installer with the application and bundled analysis runtimes
+- R 4.5.2, Seurat 5.4.0, and SeuratObject 5.3.0 package environment
+- 16-step English analysis interface
+- 10X, matrix, archive, compatible RDS, and H5AD import workflows
+- Main-cluster and subcluster analysis, annotation, differential expression, enrichment, scoring, communication, cell-cycle, trajectory, export, and AI-agent pages
+- Complete illustrated English Word manual
+- SHA-256 checksums and Windows installation notes
 
-### Trial app
+### Trial policy
 
-The standalone macOS `.app` bundle is distributed as a `.zip` asset in GitHub Releases and is not committed to the repository because of file size.
+- Activation-free through **2026-10-31**
+- Activation required starting **2026-11-01**
+- Compatible valid product-line activation codes remain supported
 
-### Recommended reviewer dataset
+### Distribution notes
 
-- Dataset: GSE250245
-- Example samples: GSM7976207, GSM7976209, GSM7976211
-- Biological context: right-hemisphere ischemic lesion single-cell RNA-seq dataset
-- Approximate benchmark size: 35,377 cells, depending on QC and preprocessing settings
+- The installer is approximately 1.60 GB and is attached to the GitHub Release, not committed to Git history.
+- The installed application occupies approximately 4.72 GB before projects and caches.
+- The installer is not digitally signed, so Windows SmartScreen may display an Unknown publisher warning.
+- A matching macOS DMG will be published separately.
 
-### Notes
+### Recommended demonstration dataset
 
-The app is intended for non-commercial academic evaluation. Please see `LICENSE`, `LICENSE_ACADEMIC.md`, and `NOTICE` for licensing details.
+The English user manual demonstrates the workflow with GSE250245 using Sham, MMCAO, and SMCAO samples.
+
+## Historical macOS academic-trial releases
+
+Earlier macOS trial builds remain available under their original release tags and retain the availability terms stated on those pages.

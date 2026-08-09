@@ -1,26 +1,28 @@
 # User Manual
 
-## Overview
+The complete illustrated English manual for the Windows release is available here:
 
-scFlow Studio is organized as a project-based desktop workflow. Each page corresponds to one analysis stage and writes intermediate outputs to the project cache.
+- [`docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx`](docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx)
 
-## Pages
+It covers installation, uninstall, interface controls, supported import formats, all 16 analysis pages, a GSE250245 example, common parameters, and troubleshooting.
 
-1. **Project and Data**: create/open projects and register samples.
-2. **Single-Sample QC**: calculate QC metrics, filter cells/genes, and export QC plots.
-3. **Doublet Removal**: run or skip doublet removal.
-4. **Batch Correction**: preview and apply batch correction where needed.
-5. **Merge and Clustering**: merge samples, normalize data, select variable features, run PCA/UMAP/t-SNE, and cluster cells.
-6. **Main Annotation**: annotate main clusters with manual markers, SingleR, SCINA, CellAssign, or marker overlap.
-7. **Subcluster Analysis**: create and manage subcluster results, annotate subtypes, and generate subtype plots.
-8. **Differential Analysis**: run condition- or cell-type-aware DEG comparisons.
-9. **GSEA**: perform pathway-level enrichment analysis from DEG results.
-10. **Single-Gene Analysis**: visualize and compare expression of selected genes.
-11. **Gene-Set Scoring**: score user-defined gene sets and compare module scores.
-12. **Export**: export figures, tables, h5ad, RDS, and project bundles.
+## Workflow pages
 
-## Notes
+1. Data Import
+2. Quality Control
+3. Doublet Removal
+4. Batch Correction
+5. Merge and Clustering
+6. Cell-Type Annotation
+7. Subcluster Analysis
+8. Differential Expression
+9. GSEA Enrichment
+10. Single-Gene Analysis
+11. Gene Set Scoring
+12. Cell–Cell Communication
+13. Cell-Cycle Scoring
+14. Trajectory Analysis
+15. Export Report
+16. AI Scientific Manuscript Agent
 
-- Keep project paths in user-writable directories.
-- Very large datasets may require more memory and disk space.
-- Review the log tab if an R package or input-format error occurs.
+For a compact first-run guide, see [`QUICK_START.md`](QUICK_START.md).

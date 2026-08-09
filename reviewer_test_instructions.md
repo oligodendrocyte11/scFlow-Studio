@@ -2,24 +2,24 @@
 
 ## Purpose
 
-This academic trial build lets reviewers inspect and run the scFlow Studio workflow without requesting an activation code.
+The time-limited Windows V0.1.0 release lets reviewers inspect and run the complete English workflow without requesting an activation code through 2026-10-31.
 
-## Trial App
+## Release assets
 
-- File: `release/scFlow_Studio_Mac_AcademicTrial_2026-10-01.zip`
-- Valid until: 2026-10-01
-- Activation: not required
+- `scFlow Studio Agent V0.1.0 Setup.exe`
+- `scFlow Studio Agent V0.1.0 User Manual.docx`
+- SHA-256 values in `CHECKSUMS.txt`
 
-## Suggested Smoke Test
+## Suggested smoke test
 
-1. Unzip the release file.
-2. Launch `scFlow Studio.app`.
-3. Confirm the main window title includes **Academic Trial Version**.
-4. Create a small test project.
-5. Import a small 10X matrix folder.
-6. Run data checking and one lightweight QC step.
-7. Confirm outputs appear in the preview/results panel and the project cache.
+1. Verify the installer checksum.
+2. Install and launch the application.
+3. Create a project outside the installation directory.
+4. Import a small 10X sample or H5AD object.
+5. Confirm sample metadata and run Data Import.
+6. Run Quality Control and verify the progress indicator, Log, figures, and tables.
+7. Save, close, and reopen the project.
 
-## macOS Security Note
+## Reporting a problem
 
-The trial build is ad-hoc signed but not Apple-notarized. If macOS blocks the app, right-click **Open** or remove quarantine for local testing.
+Record the application version, Windows version, input format, step name, parameters, and final Log lines. Remove API keys, personal directories, and restricted sample information before sharing logs or screenshots.

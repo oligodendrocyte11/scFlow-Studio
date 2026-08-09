@@ -1,108 +1,96 @@
-# scFlow Studio
+# scFlow Studio Agent
 
-**scFlow Studio** is a macOS desktop application for interactive single-cell RNA-seq analysis. It combines a PySide6 graphical interface with an R/Seurat backend and provides a project-based workflow for data import, quality control, doublet removal, batch correction, clustering, annotation, differential expression analysis, GSEA, single-gene analysis, gene-set scoring, and export.
+**scFlow Studio Agent** is a desktop application for interactive single-cell RNA-seq analysis. It combines a PySide6 interface with a bundled R/Seurat environment and a project-based workflow covering data import, quality control, doublet removal, batch correction, clustering, annotation, downstream statistics, visualization, and export.
 
-This GitHub release folder is prepared for manuscript submission, peer review, Zenodo archiving, and non-commercial academic evaluation.
+![scFlow Studio Agent Windows interface](docs/images/windows-agent-main.png)
 
-## Academic Trial App
+## Current release
 
-A macOS academic trial build is provided in:
+| Platform | Release | Distribution | Availability |
+| --- | --- | --- | --- |
+| Windows x64 | **scFlow Studio Agent V0.1.0** | [GitHub Release](https://github.com/oligodendrocyte11/scFlow-Studio/releases/tag/windows-agent-v0.1.0) | No activation is required through **2026-10-31**. Activation is required starting **2026-11-01**. |
+| macOS | A matching DMG will be published separately | GitHub Releases | See the individual macOS release notes when available. |
 
-`release/scFlow_Studio_Mac_AcademicTrial_2026-10-01.zip`
+The Windows installer is distributed as a GitHub Release asset rather than committed to Git history. Its SHA-256 checksum is listed in [`CHECKSUMS.txt`](CHECKSUMS.txt). The complete English guide is available as [`scFlow-Studio-Agent-V0.1.0-User-Manual.docx`](docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx).
 
-Trial status:
+## Main workflow
 
-- Activation code: not required
-- Device code: not shown
-- License file: not required
-- Expiration date: **2026-10-01**
-- Expiration message: `This academic trial version expired on 2026-10-01. Please contact the authors for an updated version.`
+1. Data Import
+2. Quality Control
+3. Doublet Removal
+4. Batch Correction
+5. Merge and Clustering
+6. Cell-Type Annotation
+7. Subcluster Analysis
+8. Differential Expression
+9. GSEA Enrichment
+10. Single-Gene Analysis
+11. Gene Set Scoring
+12. Cell–Cell Communication
+13. Cell-Cycle Scoring
+14. Trajectory Analysis
+15. Export Report
+16. AI Scientific Manuscript Agent
 
-The trial build is intended for peer review and non-commercial academic evaluation. It is not notarized by Apple, so macOS may show a security warning on first launch.
+## Supported inputs
 
-## Main Workflow
+Depending on the selected workflow, the Windows release supports:
 
-1. Create or open a project.
-2. Import 10X matrices, expression matrices, compressed GEO archives, sidecar-metadata matrices, or Seurat RDS objects where supported.
-3. Run single-sample QC or skip QC when appropriate.
-4. Run doublet removal or skip doublet removal when appropriate.
-5. Preview and apply batch correction when needed.
-6. Merge samples, normalize, select variable features, reduce dimensions, cluster, and visualize results.
-7. Annotate main clusters using manual markers, marker overlap, SingleR, SCINA, or CellAssign.
-8. Perform subcluster analysis, DEG analysis, GSEA, single-gene analysis, and gene-set scoring.
-9. Export figures, tables, h5ad files, full Seurat objects, or project bundles.
+- 10X Matrix Market folders (`matrix.mtx[.gz]`, `barcodes.tsv[.gz]`, and `features.tsv[.gz]` or `genes.tsv[.gz]`)
+- Expression matrices in CSV, TSV, or TXT format, optionally compressed
+- H5AD / AnnData files, including single-sample and multi-sample objects
+- GEO-style compressed archives and sidecar-metadata-assisted matrices
+- Compatible Seurat RDS objects where supported by the selected page
+- Marker CSV files, custom gene lists, and GMT gene-set files
 
-## System Requirements
+## Windows requirements
 
-Recommended for the provided macOS trial app:
+- Windows 10 or Windows 11, 64-bit
+- Approximately 1.60 GB for the installer and about 4.72 GB after installation
+- At least 16 GB RAM; 32 GB or more is recommended for larger datasets
+- Additional free space for project data, caches, temporary R preparation, and exports
+- Internet access only for optional online references or AI-provider features
 
-- Apple Silicon Mac (arm64)
-- macOS version compatible with the bundled build environment
-- 16 GB RAM minimum; 32 GB or more recommended for larger scRNA-seq datasets
-- Sufficient free disk space for temporary cache files and exported results
+The release bundles R 4.5.2, Seurat 5.4.0, SeuratObject 5.3.0, the required R package library, and the application Python runtime. Users should keep **Settings > Rscript Path** on **Auto** unless diagnosing an environment problem.
 
-The trial app bundles the required Python/R runtime and analysis dependencies used by this release.
+## Windows quick start
 
-## How to Run the macOS Trial App
+1. Download `scFlow Studio Agent V0.1.0 Setup.exe` from the Windows release.
+2. Verify the SHA-256 checksum in `CHECKSUMS.txt`.
+3. Run the installer. Windows SmartScreen may warn because this build is not digitally signed.
+4. Launch **scFlow Studio Agent V0.1.0**.
+5. Create a project outside the software installation directory.
+6. Import samples, confirm sample names and biological groups, and run the numbered workflow from top to bottom.
 
-1. Download or copy `release/scFlow_Studio_Mac_AcademicTrial_2026-10-01.zip`.
-2. Unzip it on macOS.
-3. Move `scFlow Studio.app` to a user-writable location such as Desktop or Applications.
-4. Double-click the app. If macOS blocks the unsigned app, right-click the app and choose **Open**, or remove quarantine for local testing:
+See [`INSTALL.md`](INSTALL.md), [`QUICK_START.md`](QUICK_START.md), and the [complete Word manual](docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx) for detailed instructions and a GSE250245 example.
 
-```bash
-xattr -dr com.apple.quarantine "scFlow Studio.app"
-```
+## Trial and activation policy
 
-5. The app should open without activation and remain valid until **2026-10-01**.
+The Windows V0.1.0 release runs without an activation code through **October 31, 2026**. From **November 1, 2026**, the application requires a valid activation code. Valid device-bound activation codes issued for the same product line remain supported.
 
-## Input Data
+This time-limited distribution is intended for non-commercial academic evaluation. It does not change the repository license or the licenses of bundled third-party components.
 
-Supported input types include, depending on module and workflow state:
+## Outputs
 
-- 10X Matrix Market folders (`matrix.mtx.gz`, `barcodes.tsv.gz`, `features.tsv.gz` or `genes.tsv.gz`)
-- Expression matrix files (`csv`, `tsv`, `txt`, optionally compressed)
-- GEO-style compressed archives, including nested archives where supported
-- Sidecar metadata-assisted matrix splitting
-- External single-sample Seurat `.rds` objects
-- Marker CSV files and GMT gene-set files
-
-See `demo_data/README.md` for preparation examples.
-
-## Output Results
-
-The application stores results in the project cache and supports exporting:
+The application can export:
 
 - Figures: PNG, PDF, SVG
 - Tables: CSV, TSV, TXT
-- Objects: RDS and h5ad where supported
-- Project bundles and full Seurat exports
-- Logs and JSON summaries generated by analysis steps
+- Objects: Seurat RDS and H5AD where supported
+- Project packages, analysis summaries, and report materials
 
-## Source Code
+## Source and reproducibility
 
-Project-owned source files are included in `source/`. Large bundled runtime folders are not duplicated in the source copy; the release app contains the runtime required for peer review.
+Project-owned source files are available in `source/`. Large bundled runtime folders and installers are not committed to Git history. Reproducing a packaged release additionally requires the matching bundled R/Python runtimes and third-party resources described in the build documentation.
+
+For comparable analysis runs, keep the application version, input files, sample order, parameters, random seed, and bundled runtime identical.
 
 ## Citation
 
-The archived release is available on Zenodo at https://doi.org/10.5281/zenodo.20207686.
+The archived project release is available at https://doi.org/10.5281/zenodo.20207686. Citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
-Please cite this software using `CITATION.cff` once the manuscript DOI and repository DOI are available.
+## License
 
-## Contact
+scFlow Studio is available for non-commercial academic use. Project-owned source code is provided under the PolyForm Noncommercial License 1.0.0. Third-party components retain their original licenses.
 
-Correspondence: [CONTACT EMAIL TO BE ADDED]
-
-## Availability and License
-
-scFlow Studio is freely available for non-commercial academic use. The source code, documentation, and example data are provided for academic research, peer review, and reproducibility purposes.
-
-The original source code of scFlow Studio is released under the PolyForm Noncommercial License 1.0.0. Commercial use, including commercial redistribution, integration into commercial products, or use as part of paid services, requires prior written permission from the authors.
-
-Third-party dependencies are distributed under their respective original licenses and are not relicensed by this repository.
-
-See the LICENSE, NOTICE, THIRD_PARTY_LICENSES.md, and DATA_LICENSE.md files for details.
-
-## Notes for Reviewers
-
-This release is intended to let reviewers inspect the software workflow and run a local macOS trial without an activation code. The trial build expires on **2026-10-01**. For long-term reproducibility after peer review, the final published repository should include a permanent source archive and DOI.
+See [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md), and [`DATA_LICENSE.md`](DATA_LICENSE.md).
