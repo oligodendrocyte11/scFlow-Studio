@@ -6,12 +6,12 @@
 
 ## Current release
 
-| Platform | Release | Distribution | Availability |
+| Platform | Release | Distribution | Licensing information |
 | --- | --- | --- | --- |
-| Windows x64 | **scFlow Studio Agent V0.1.0** | [GitHub Release](https://github.com/oligodendrocyte11/scFlow-Studio/releases/tag/windows-agent-v0.1.0) | No activation is required through **2026-10-31**. Activation is required starting **2026-11-01**. |
-| macOS | A matching DMG will be published separately | GitHub Releases | See the individual macOS release notes when available. |
+| Windows x64 | **scFlow Studio Agent V0.1.0** | [GitHub Release](https://github.com/oligodendrocyte11/scFlow-Studio/releases/tag/windows-agent-v0.1.0) | Managed within the application; see the bundled User Manual. |
+| macOS arm64 | **scFlow Studio Agent V0.1.0** | [GitHub Release](https://github.com/oligodendrocyte11/scFlow-Studio/releases/tag/macos-agent-v0.1.0) | Managed within the application; see the bundled User Manual. |
 
-The Windows installer is distributed as a GitHub Release asset rather than committed to Git history. Its SHA-256 checksum is listed in [`CHECKSUMS.txt`](CHECKSUMS.txt). The complete English guide is available as [`scFlow-Studio-Agent-V0.1.0-User-Manual.docx`](docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx).
+The Windows installer and macOS DMG are distributed as GitHub Release assets rather than committed to Git history. SHA-256 checksums are provided with each release. The complete English Windows guide is available as [`scFlow-Studio-Agent-V0.1.0-User-Manual.docx`](docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx), and the English macOS guide is included with the macOS release.
 
 ## Main workflow
 
@@ -64,11 +64,9 @@ The release bundles R 4.5.2, Seurat 5.4.0, SeuratObject 5.3.0, the required R pa
 
 See [`INSTALL.md`](INSTALL.md), [`QUICK_START.md`](QUICK_START.md), and the [complete Word manual](docs/scFlow-Studio-Agent-V0.1.0-User-Manual.docx) for detailed instructions and a GSE250245 example.
 
-## Trial and activation policy
+## Licensing and activation
 
-The Windows V0.1.0 release runs without an activation code through **October 31, 2026**. From **November 1, 2026**, the application requires a valid activation code. Valid device-bound activation codes issued for the same product line remain supported.
-
-This time-limited distribution is intended for non-commercial academic evaluation. It does not change the repository license or the licenses of bundled third-party components.
+Licensing and activation are managed within the application. Platform-specific instructions are provided in each release and the bundled User Manual.
 
 ## Outputs
 
